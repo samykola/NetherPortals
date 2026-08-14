@@ -1,0 +1,84 @@
+# =====================================================
+#            DynamicPortal Configuration
+# =====================================================
+
+portal:
+  # Block used for the portal frame. Must not be breakable normally (it is protected by the plugin).
+  frame-material: GOLD_BLOCK
+  # Total outer width/height of the frame, including the frame blocks themselves.
+  # Minimum usable size is 4x5 (same footprint as a vanilla nether portal).
+  width: 4
+  height: 5
+
+relocation:
+  # If false, the portal will stay in place forever (until moved manually with /portal move).
+  enabled: true
+  # How many real-world days between automatic relocations.
+  interval-days: 3
+
+location:
+  # "auto" = place on the highest safe solid block found.
+  # Or set a fixed integer Y value instead of "auto".
+  y: auto
+  min-x: -5000
+  max-x: 5000
+  min-z: -5000
+  max-z: 5000
+  # Minimum horizontal distance (blocks) the new portal must be from the world's spawn point.
+  min-distance-from-spawn: 500
+
+worlds:
+  # World used when random-world-selection is false, and as a fallback.
+  default: world
+  # Worlds the portal is allowed to appear in.
+  allowed:
+    - world
+  # If true, each relocation picks a random world from "allowed" instead of always using "default".
+  random-world-selection: false
+
+permissions:
+  # If true, players need dynamicportal.location to run /portal location and /portal time.
+  location-requires-permission: false
+  # If true, players need dynamicportal.teleport to run /portal teleport.
+  teleport-requires-permission: false
+
+protection:
+  prevent-block-break: true
+  prevent-block-place: true
+  prevent-explosions: true
+  prevent-fire: true
+  prevent-piston: true
+  prevent-liquid-flow: true
+
+teleport:
+  # If true, standing in the portal will trigger vanilla Minecraft nether-dimension travel.
+  # If false (default), the portal is purely visual/atmospheric and only shows the entry message -
+  # it will NOT send players to the Nether, which keeps the "dynamic location" gimmick intact.
+  enable-vanilla-portal-travel: false
+  entry-message-enabled: true
+  # Seconds before the same player can trigger the entry message/title again.
+  entry-cooldown-seconds: 5
+
+messages:
+  prefix: "&5&lPortal &8» "
+  moved: "&dThe portal has moved to a new location!"
+  protected: "&cThis portal is protected."
+  no-permission: "&cYou do not have permission to do that."
+  portal-created: "&aPortal created at &f%x%, %y%, %z% &ain world &f%world%"
+  portal-removed: "&cPortal removed."
+  portal-not-found: "&cThere is no active portal."
+  no-safe-location: "&cCould not find a safe location for the portal after several attempts."
+  world-invalid: "&cThat world does not exist or is not loaded."
+  world-not-allowed: "&cThat world is not in the allowed-worlds list."
+  reloaded: "&aConfiguration reloaded."
+  teleported: "&aTeleported to the portal."
+  random-world-selected: "&aRandomly selected world: &f%world%"
+  world-set: "&aDefault portal world set to &f%world%"
+  entry-title: "&5&lPORTAL"
+  entry-subtitle: "&dEntering the dynamic portal..."
+  location-header: "&5&lPortal Location:"
+  next-relocation: "&7Next relocation: &f%time%"
+  unknown-command: "&cUnknown subcommand. Use /portal help for a list of commands."
+
+# Enables extra logging to the console for debugging purposes.
+debug: false

@@ -1,0 +1,26 @@
+name: ${project.name}
+version: ${project.version}
+main: com.dynamicportal.DynamicPortalPlugin
+api-version: '1.21'
+author: DynamicPortalDev
+description: A Gold Block nether-style portal that automatically relocates every 3 days.
+folia-supported: false
+
+commands:
+  portal:
+    description: Manage the Dynamic Portal
+    usage: /<command> [help|location|time|teleport|move|setworld|randomworld|reload|remove|create]
+
+permissions:
+  dynamicportal.admin:
+    description: Full administrative access to Dynamic Portal (create, remove, move, setworld, reload)
+    default: op
+  dynamicportal.teleport:
+    description: Allows using /portal teleport
+    default: true
+  dynamicportal.location:
+    description: Allows using /portal location and /portal time
+    default: true
+  dynamicportal.reload:
+    description: Allows reloading the Dynamic Portal configuration
+    default: op
