@@ -1,4 +1,4 @@
-name: Build DynamicPortal
+name: Build NetherPortals
 
 on:
   push:
@@ -22,10 +22,11 @@ jobs:
           cache: maven
 
       - name: Build plugin
+        working-directory: dynamic-portal
         run: mvn -B clean package
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: DynamicPortal
-          path: target/*.jar
+          name: NetherPortals
+          path: dynamic-portal/target/*.jar
